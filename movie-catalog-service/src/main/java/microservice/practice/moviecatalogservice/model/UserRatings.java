@@ -2,17 +2,24 @@ package microservice.practice.moviecatalogservice.model;
 
 import java.util.List;
 
+
 public class UserRatings {
-    public List<MovieRating> getUserMovieRating() {
-        return userMovieRating;
+    private String userId;
+    private List<MovieRating> ratings;
+
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUserMovieRating(List<MovieRating> userMovieRating) {
-        this.userMovieRating = userMovieRating;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public UserRatings() {
+    public List<MovieRating> getRatings() {
+        return ratings;
     }
 
-    private List<MovieRating> userMovieRating;
+    public void setRatings(List<MovieRating> ratings) {
+        this.ratings = ratings;
+    }
 }

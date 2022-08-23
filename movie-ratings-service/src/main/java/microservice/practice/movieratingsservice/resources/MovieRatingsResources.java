@@ -24,11 +24,7 @@ public class MovieRatingsResources {
     @GetMapping(value = "/user/{userId}")
     public UserRatings getRatingsByUser(@PathVariable("userId") String userId){
         UserRatings userRatings = new UserRatings();
-        List<MovieRating> movieRatings = Arrays.asList(
-                new MovieRating("123", 3),
-                new MovieRating("124", 4)
-        );
-         userRatings.setUserMovieRating(movieRatings);
-         return userRatings;
+        userRatings.initData(userId);
+        return userRatings;
     }
 }

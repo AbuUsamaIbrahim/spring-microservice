@@ -3,6 +3,7 @@ package microservice.practice.moviecatalogservice;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
@@ -11,6 +12,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 @SpringBootApplication
 @EnableEurekaClient
+@EnableCircuitBreaker
 public class MovieCatalogServiceApplication {
 
 	@Bean
@@ -18,7 +20,7 @@ public class MovieCatalogServiceApplication {
 	public RestTemplate restTemplate(){
 		return new RestTemplate();
 	}
-	@Bean
+	@Bean(value = "webClientBean")
 	public WebClient.Builder getWebClientBuilder(){
 		return WebClient.builder();
 	}
